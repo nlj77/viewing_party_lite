@@ -16,29 +16,29 @@ RSpec.describe 'landing page' do
     expect(current_path).to eq('/users/new')
   end
 
-  it 'has a list of existing users' do
-    user_1 = User.create!(name: 'Mike', email: 'email@email.com', password: 'test123')
-    user_2 = User.create!(name: 'Nick', email: '123@email.com', password: 'test123' )
+  # it 'has a list of existing users' do
+  #   user_1 = User.create!(name: 'Mike', email: 'email@email.com', password: 'test123')
+  #   user_2 = User.create!(name: 'Nick', email: '123@email.com', password: 'test123' )
 
-    visit '/'
+  #   visit '/'
 
-    within('#existing-users') do
-      expect(page).to have_content("email@email.com's Dashboard")
-      expect(page).to have_content("123@email.com's Dashboard")
-    end
-    expect(User.all).to eq([user_1, user_2])
-    expect(User.count).to eq(2)
-  end
+  #   within('#existing-users') do
+  #     expect(page).to have_content("email@email.com's Dashboard")
+  #     expect(page).to have_content("123@email.com's Dashboard")
+  #   end
+  #   expect(User.all).to eq([user_1, user_2])
+  #   expect(User.count).to eq(2)
+  # end
 
-  it 'users emails link to user show page' do
-    user_1 = User.create!(name: 'Mike', email: 'email@email.com', password: 'test123')
+  # it 'users emails link to user show page' do
+  #   user_1 = User.create!(name: 'Mike', email: 'email@email.com', password: 'test123')
 
-    visit '/'
+  #   visit '/'
 
-    click_on("email@email.com's Dashboard")
+  #   click_on("email@email.com's Dashboard")
 
-    expect(current_path).to eq("/users/#{user_1.id}")
-  end
+  #   expect(current_path).to eq("/users/#{user_1.id}")
+  # end
 
   it ' has a link to to the landing page' do
     visit '/'

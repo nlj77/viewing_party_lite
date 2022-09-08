@@ -10,7 +10,7 @@ def create
     if user&.authenticate(params[:password])
         session[:user_id] = user.id 
         flash[:success] = "Welcome, #{user.name}!"
-        redirect_to root_path
+        redirect_to "/users/#{user.id}"
     else 
     flash[:error] = "Sorry, your credentials are bad."
     render :new
